@@ -5,11 +5,25 @@
         <h1 class="title">OYE</h1>
       </div>
       <div class="navbar-center">
-        <router-link to="../components/PaginaInicio.vue" class="nav-link" >Inicio</router-link>
-        <router-link to="/canciones" class="nav-link" >Canciones</router-link>
+        <a to="../components/PaginaInicio.vue" class="nav-link" >Inicio</a>
+        <!-- <router-link to="/canciones" class="nav-link" >Canciones</router-link> -->
       </div>
-      <div class="navbar-right">
-        <button type="button" class="nav-btn btn btn-primary">Contacto</button>
+       <div class="navbar-right">
+          
+        <!-- <div class="contacto">
+          <button type="button" class="nav-btn btn btn-primary" @click="showCardOnClick">Contacto</button>
+           <CardContacto v-if="showCard" texto1="Texto 1 de la tarjeta"  texto2="Texto 2 de la tarjeta"/>
+        </div> -->
+        <div class="contacto">
+      <span @click="showCardOnClick">
+        <button class="button btn btn-primary">Contacto</button>
+      </span>
+      <CardContacto
+        v-if="showCard"
+        :texto1="hola"
+        :texto2="texto "
+      />
+    </div>
         <button type="button" class="nav-btn btn btn-primary">Inicio de Sesión</button>
         <button type="button" class="nav-btn btn btn-primary">Registro</button>
       </div>
@@ -49,7 +63,7 @@
       </div>
     </div>
   </div>
-  <div class="container2 d-flex align-items-center justify-content-center flex-column">
+  <!-- <div class="container2 d-flex  justify-content-center flex-column">
     <div class="line"></div>
     <h1 class="title3">Título</h1>
     <div class="line"></div>
@@ -73,12 +87,79 @@
         </audio>
       </div>
     </div>
+  </div> -->
+  <div class="container3 m-5">
+    <div class="line"></div>
+    <h1 class="title3">Top 3</h1>
+    <div class="line"></div>
+    <div class="row">
+      <div class="col-5">
+        <p class="text">Nombre</p>
+      </div>
+      <div class="col-7">
+        <p class="text">Canción</p>
+      </div>
+      <div class="line"></div>
+      <div class="row">
+        <div class="col-5">
+          <h3 class="subtitulo">Nuevamente</h3>
+        </div>
+        <div class="col-7">
+          <audio controls class="audio">
+            <source src="../canciones/uno.mp3" type="audio/mp3">
+          </audio>
+        </div>
+      </div>
+      <div class="line"></div>
+      <div class="row">
+        <div class="col-5">
+          <h3 class="subtitulo">Suave</h3>
+        </div>
+        <div class="col-7">
+          <audio controls class="audio">
+            <source src="../canciones/dos.mp3" type="audio/mp3">
+          </audio>
+        </div>
+      </div>
+      <div class="line"></div>
+      <div class="row">
+        <div class="col-5">
+          <h3 class="subtitulo">Alas</h3>
+        </div>
+        <div class="col-7">
+          <audio controls class="audio">
+            <source src="../canciones/tres.mp3" type="audio/mp3">
+          </audio>
+        </div>
+        <div class="line"></div>
+      </div>
+    </div>
+
   </div>
   </template>
   
   <script>
+  import '../styles/PaginaInicio.css'
+
+  import CardContacto from './CardContacto.vue'
+
   export default {
     name: 'PaginaInicio',
+
+    components: {
+      CardContacto,
+    },
+    data() {
+    return {
+      showCard: false,
+    };
+  },
+  methods: {
+    showCardOnClick() {
+      this.showCard = true;
+    },
+  },
+    
     // methods: {
     //   isRouteActive(route){
     //     return this.$route.path === route;
@@ -87,121 +168,4 @@
   };
   </script>
 
-  <style>
-
-    /* Estilos para la barra de navegacion */
-
-  .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #f2f2f2;
-    padding: 10px;
-  }
-  
-  .navbar-left {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-  }
-  
-  .title {
-    font-size: 3em;
-    font-weight: bold;
-    padding: 0;
-    margin: 0;
-    color:rgb(0, 110, 255);
-  }
-  
-  .navbar-center {
-    display: flex;
-  }
-  
-  .nav-link {
-    margin-right: 10px;
-    text-decoration: none;
-    color: #333;
-  }
-
-  .nav-link.active {
-  font-weight: bold;
-  }
-  
-  .navbar-right {
-    display: flex;
-  }
-  
-  .nav-btn {
-    margin-right: 10px;
-    padding: 5px 10px;
-    cursor: pointer;
-  }
-
-    /* Estilos para contenedor de informacion */
-
-  .container {
-  background-color: #c2bdbdb6;
-  padding: 20px;
-  margin-top: 20px;
-  height: 40vh; /* Ajusta el contenedor al 100% del alto de la ventana */
-  padding: 0.5em;
-}
-
-.row {
-  margin: 0 auto; /* Centra el contenido horizontalmente */
-}
-
-.title2 {
-  margin-top: 5%;
-  font-weight: bold;
-}
-
-.img-fluid {
-  max-width: 70%;
-  height: auto;
-  margin: 1em;
-}
-
-.text1 {
-  margin-top: 3%;
-}
-
-.a1 {
-  margin-top: 4%;
-}
-
-.paso2 {
-  -webkit-filter: invert(100%);
-  filter: invert(100%);
-}
-
-    /* Estilos para top 3 canciones */
-
-.line {
-  width: 68.8%;
-  height: 1px;
-  background-color: #ccc;
-  margin-bottom: 10px;
-  margin-top: 5%;
-}
-
-.title3 {
-  font-size: 2em;
-    font-weight: bold;
-    padding: 0;
-    margin: 0;
-    color:rgb(0, 110, 255);
-}
-
-.text-left {
-  text-align: left;
-}
-
-
-
-</style>
+  <style></style>

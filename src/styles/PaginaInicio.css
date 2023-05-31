@@ -1,0 +1,149 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f2f2f2;
+    padding: 10px;
+  }
+  
+  .navbar-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+  
+  .title {
+    font-size: 3em;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+    color:rgb(0, 110, 255);
+  }
+  
+  .navbar-center {
+    display: flex;
+  }
+  
+  .nav-link {
+    margin-right: 10px;
+    text-decoration: none;
+    color: #333;
+  }
+
+  .nav-link.active {
+  font-weight: bold;
+  }
+  
+  .navbar-right {
+    display: flex;
+  }
+  
+  .nav-btn {
+    margin-right: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+
+    /* Estilos para contenedor de informacion */
+
+  .container {
+  background-color: #c2bdbdb6;
+  padding: 20px;
+  margin-top: 20px;
+  height: 40%;
+  padding: 0.5em;
+}
+
+.row {
+  margin: 0 auto; /* Centra el contenido horizontalmente */
+}
+
+.title2 {
+  margin-top: 5%;
+  font-weight: bold;
+}
+
+.img-fluid {
+  max-width: 70%;
+  height: auto;
+  margin: 1em;
+}
+
+.text1 {
+  margin-top: 3%;
+}
+
+.a1 {
+  margin-top: 4%;
+}
+
+.paso2 {
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
+}
+
+    /* Estilos para top 3 canciones */
+
+/* .line {
+  width: 68.8%;
+  height: 1px;
+  background-color: #ccc;
+  margin-bottom: 10px;
+  margin-top: 5%;
+}
+
+.title3 {
+  font-size: 2em;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+    color:rgb(0, 110, 255);
+}
+
+.text-left {
+  text-align: left;
+} */
+
+.container3 {
+  /* background-color: #f2f2f2; */
+  /* padding: 20px;
+  margin-top: 20px; */
+  padding-left: 5em;
+  padding-right: 5em;
+  
+}
+
+
+
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+  margin-bottom: 10px;
+  
+}
+
+.title3 {
+  margin-top: 0;
+  text-align: center;
+  color:rgb(0, 110, 255);
+  font-weight: bold;
+}
+
+.text {
+    font-weight: bold;
+}
+
+.audio {
+  width: 60%;
+}
+
+.subtitulo {
+    font-weight: bold;
+    color:rgb(0, 110, 255);
+}

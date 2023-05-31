@@ -1,0 +1,4 @@
+Este es un proyecto pequeño, donde estoy aplicando distintas tecnicas de desarrollo, tenemos el uso de componentes de vue
+Uso de estilos por medio del Framework Bootstrap, tenemos uso de archvios json y funciones asincronas para el cargue de estos 
+datos del archivo JSON, no estoy enfocado en este caso en un uso responsive, de igual forma por medio del framework hice el
+renderizado para dispositivos small, medium and desktop, hice sus principales funciones con componentes de vue.
