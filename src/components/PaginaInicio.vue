@@ -1,46 +1,30 @@
 <template>
     <div class="navbar">
       <div class="navbar-left">
+        <span class="Logo cursor-pointer">
         <img src="../assets/logo.png" alt="Logo" class="logo" />
+      </span>
         <h1 class="title">OYE</h1>
       </div>
       <div class="navbar-center">
-        <a to="../components/PaginaInicio.vue" class="nav-link" >Inicio</a>
-        <!-- <router-link to="/canciones" class="nav-link" >Canciones</router-link> -->
+        <a class="linker" href="../components/PaginaInicio.vue">Inicio</a>
+        <a class="linker linker-spaced" href="../components/PaginaCanciones.vue">Canciones</a>
+        <PaginaCanciones/>
       </div>
        <div class="navbar-right">
-          
-        <!-- <div class="contacto">
-          <button type="button" class="nav-btn btn btn-primary" @click="showCardOnClick">Contacto</button>
-           <CardContacto v-if="showCard" texto1="Texto 1 de la tarjeta"  texto2="Texto 2 de la tarjeta"/>
-        </div> -->
+
         <div class="contacto">
-      <span @click="showCardOnClick">
-        <button class="button btn btn-primary">Contacto</button>
+      <span>
+        <button class="button btn btn-primary" @click="mostrarModalContacto">Contacto</button>
+        <CardContacto v-if="mostrarModal" @cerrarModal="ocultarModal" :estilos="modalEstilos"/>
       </span>
-      <CardContacto
-        v-if="showCard"
-        :texto1="hola"
-        :texto2="texto "
-      />
+
     </div>
         <button type="button" class="nav-btn btn btn-primary">Inicio de Sesión</button>
         <button type="button" class="nav-btn btn btn-primary">Registro</button>
       </div>
     </div>
-    <!-- <div class="--bs-border-color">
-      <div id="Carol">
-        <figure>
-  <blockquote class="blockquote">
-    <h1>Canciones gratis para la <br>
-    comunidad!</h1>
-  </blockquote>
-  <figcaption class="blockquote-footer">
-    <cite title="Source Title">Con este sitio podras escuchar audios de manera libre...</cite>
-  </figcaption>
-</figure>
-      </div>
-    </div> -->
+
     <div class="container d-flex align-items-center justify-content-center ">
     <div class="row">
       <div class="col-md-6">
@@ -63,31 +47,7 @@
       </div>
     </div>
   </div>
-  <!-- <div class="container2 d-flex  justify-content-center flex-column">
-    <div class="line"></div>
-    <h1 class="title3">Título</h1>
-    <div class="line"></div>
-    <div class="row">
-      <div class="col-md-6">
-        <p class="text-left">Texto a la izquierda</p>
-      </div>
-      <div class="col-md-6 d-flex align-items-center justify-content-center">
-        <p class="text-center">Texto al centro</p>
-      </div>
-    </div>
-    <div class="line"></div>
-    <div class="row">
-      <div class="col-md-6">
-        <h3 class="subtitle">Subtítulo a la izquierda</h3>
-      </div>
-      <div class="col-md-6 d-flex align-items-center justify-content-center">
-        <audio controls class="audio">
-          <source src="audio.mp3" type="audio/mpeg">
-          Tu navegador no soporta el elemento de audio.
-        </audio>
-      </div>
-    </div>
-  </div> -->
+
   <div class="container3 m-5">
     <div class="line"></div>
     <h1 class="title3">Top 3</h1>
@@ -140,32 +100,41 @@
   
   <script>
   import '../styles/PaginaInicio.css'
-
   import CardContacto from './CardContacto.vue'
+  import PaginaCanciones from './PaginaCanciones.vue'
 
-  export default {
-    name: 'PaginaInicio',
-
-    components: {
-      CardContacto,
-    },
-    data() {
+export default {
+  name:'PaginaInicio',
+  components:{
+    CardContacto,
+    PaginaCanciones,
+  },
+  data(){
     return {
-      showCard: false,
-    };
+      mostrarModal: false,
+      modalEstilos: {
+        display:'none',
+      },
+    }
   },
   methods: {
-    showCardOnClick() {
-      this.showCard = true;
+    ocultarModal(){
+      this.mostrarModal = false;
+      this.modalEstilos = {
+        display: 'none',
+      }
+    },
+    mostrarModalContacto(){
+      this.mostrarModal = true;
+      this.modalEstilos = {
+        display:'block',
+      }
     },
   },
-    
-    // methods: {
-    //   isRouteActive(route){
-    //     return this.$route.path === route;
-    //   }
-    // }
-  };
+  mounted(){
+    this.ocultarModal();
+  },
+}
   </script>
 
   <style></style>

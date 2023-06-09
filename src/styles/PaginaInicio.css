@@ -147,3 +147,12 @@
     font-weight: bold;
     color:rgb(0, 110, 255);
 }
+
+.linker {
+  color: black;
+  text-decoration: none;
+  margin-right: 10px;
+}
+.linker-sapced{
+  margin-right: 10px;
+}
